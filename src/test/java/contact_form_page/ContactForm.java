@@ -1,3 +1,5 @@
+package contact_form_page;
+
 import init.SimpleTestsInit;
 import org.testng.annotations.Test;
 

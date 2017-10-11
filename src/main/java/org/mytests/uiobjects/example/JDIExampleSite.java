@@ -11,7 +11,7 @@ import org.mytests.uiobjects.example.enums.CheckBoxes;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.mytests.uiobjects.example.pages.*;
-import org.mytests.uiobjects.example.section_and_form.*;
+import org.mytests.uiobjects.example.form.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -60,11 +60,7 @@ public class JDIExampleSite extends WebSite {
         Assert.assertEquals(profilePhoto.getText(), PITER_CHAILOVSKII.getName());
     }
 
-    @Step
-    public  static void search(){
-        search.searchInput.input("Assert");
 
-    }
 
 
     @Step("Check interface on Home page")

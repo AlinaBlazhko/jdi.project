@@ -1,3 +1,5 @@
+package login_tests;
+
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.User;
 import org.testng.Assert;

@@ -1,3 +1,5 @@
+package different_elements_page;
+
 import com.epam.jdi.uitests.web.selenium.elements.common.DatePicker;
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.Status;

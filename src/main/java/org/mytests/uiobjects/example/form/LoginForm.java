@@ -1,4 +1,4 @@
-package org.mytests.uiobjects.example.section_and_form;
+package org.mytests.uiobjects.example.form;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;

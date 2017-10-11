@@ -1,3 +1,5 @@
+package TestFromSelenide;
+
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.HeaderMenu;
 import org.testng.annotations.Test;
@@ -11,6 +13,9 @@ import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
  * Created by X240 on 10/10/2017.
  */
 public class DragAndDrop extends SimpleTestsInit {
+
+
+
     @Test
     public void testCF() {
         //Open login form and perform login
@@ -20,6 +25,8 @@ public class DragAndDrop extends SimpleTestsInit {
 
         header.open(HEADER_SERVICE, DATES);
 
-        differentElements.setSliders(0,0);
+        dates.setSliders(0,0);
+        dates.setSliders(30, 70);
+        dates.setSliders(100, 100);
     }
 }

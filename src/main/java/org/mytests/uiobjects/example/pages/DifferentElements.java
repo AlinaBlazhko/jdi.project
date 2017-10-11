@@ -44,14 +44,4 @@ public class DifferentElements extends WebPage {
     @FindBy(css = "input.uui-button")
     public Button button;
 
-    @FindBy(css = ".info-panel-body-log ul li")
-    public Elements<Text> logs;
-
-
-
-//    @FindBy(css = ".uui-slider.blue.range.ui-slider")
-//    private SelenideElement sliderTrack;
-//
-//    @FindBy(css = ".ui-slider-handle")
-//    private Elements<Label> sliders;
 }
