@@ -1,6 +1,7 @@
-package org.mytests.uiobjects.example.form;
+package org.mytests.uiobjects.example.sections;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Label;
+import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Elements;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import org.openqa.selenium.support.FindBy;

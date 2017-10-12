@@ -2,6 +2,7 @@ package org.mytests.uiobjects.example.form;
 
 import com.codeborne.selenide.SelenideElement;
 import com.epam.jdi.uitests.core.annotations.Mandatory;
+import com.epam.jdi.uitests.core.interfaces.complex.FormFilters;
 import com.epam.jdi.uitests.web.selenium.elements.common.*;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextArea;
@@ -10,11 +11,16 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Elements;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import org.mytests.uiobjects.example.entities.DatesInfo;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.awt.*;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.actions;
+import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.ALL;
+import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.MANDATORY;
+import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.OPTIONAL;
+import static org.testng.Assert.assertEquals;
 
 
 /**
@@ -22,7 +28,7 @@ import static com.codeborne.selenide.Selenide.actions;
  */
 
 //@JPage(url = "/page4.htm")
-public class Dates extends Form<DatesInfo>{
+public class DatesForm extends Form<DatesInfo>{
 
     @Mandatory
     @FindBy(css = "#Name")
@@ -40,12 +46,8 @@ public class Dates extends Form<DatesInfo>{
 //    public Elements<TextField> range1;
 
     @Mandatory
-    @FindBy(xpath = "//div[contains(@class, 'range-from overflow')]/input[contains(@class, 'uui-form-element')][1]")
-    public TextField from;
-
-    @Mandatory
-    @FindBy(xpath = "//div[contains(@class, 'range-from overflow')]/input[contains(@class, 'uui-form-element')][2]")
-    public TextField to;
+    @FindBy(css = ".range-from input")
+    private Elements<TextField> range1;
 
     //??
     @FindBy(css = "div.date.uui-datepicker.date-button.small input")
@@ -72,6 +74,31 @@ public class Dates extends Form<DatesInfo>{
                 .replaceAll("px", "")) + slider.getWebElement().getSize().width / 2.0;
     }
 
+    private FormFilters currentFilter = ALL;
+
+    @Override
+    public void filter(FormFilters filter){
+        currentFilter = filter;
+        super.filter(filter);
+    }
+
+    @Override
+    public void submit(DatesInfo datesInfo){
+        if (currentFilter != MANDATORY){
+            setSliders(datesInfo.range2.from, datesInfo.range2.to);
+        }
+        if (currentFilter != OPTIONAL){
+            range1.get(0).sendKeys(String.valueOf(datesInfo.range1.from));
+            range1.get(1).sendKeys(String.valueOf(datesInfo.range1.to));
+        }
+        super.submit(datesInfo);
+    }
+
+    public void clickButton(){
+        submit.click();
+    }
+
+    //Sliders
     private int getSliderPosition(Link slider) {
         return new Integer(slider.getText());
     }
@@ -109,11 +136,11 @@ public class Dates extends Form<DatesInfo>{
             moveSliderToPos(sliders.get(1), rightSliderPos);
         }
     }
-//    public void checkSliders(int leftSliderPos, int rightSliderPos) {
-//        sliderTrack.scrollTo();
-//        sliders.get(0).getWebElement().shouldHave(exactText(Integer.toString(leftSliderPos)));
-//        sliders.get(1).shouldHave(exactText(Integer.toString(rightSliderPos)));
-//    }
+    public void checkSliders(int leftSliderPos, int rightSliderPos) {
+        sliderTrack.scrollTo();
+        assertEquals(sliders.get(0).getValue(), Integer.toString(leftSliderPos));
+        assertEquals(sliders.get(1).getValue(), Integer.toString(leftSliderPos));
+    }
 
 
 }

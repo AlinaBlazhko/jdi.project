@@ -4,6 +4,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.DatePicker;
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.Status;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.mytests.uiobjects.example.JDIExampleSite.*;
@@ -17,6 +18,16 @@ import static org.mytests.uiobjects.example.enums.Status.*;
  * Created by X240 on 10/6/2017.
  */
 public class DifferentElementsPageTest extends SimpleTestsInit {
+
+    @DataProvider(parallel = true)
+    public Object[][] difElementsProvider(){
+        return new Object[][]{
+                {},
+                {},
+                {}
+        };
+    };
+
     @Test
     public void testDE() {
         //Open login form and perform login

@@ -15,7 +15,7 @@ public enum Colors {
         return element;
     }
 
-    Colors(String color){
-        this.element = color;
+    Colors(String element){
+        this.element = element;
     }
 }

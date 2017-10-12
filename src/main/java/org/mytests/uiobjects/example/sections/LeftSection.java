@@ -1,4 +1,4 @@
-package org.mytests.uiobjects.example.form;
+package org.mytests.uiobjects.example.sections;
 
 import com.epam.jdi.uitests.core.interfaces.complex.IDropDown;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;

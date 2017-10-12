@@ -3,6 +3,7 @@ package TestFromSelenide;
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.*;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.mytests.uiobjects.example.JDIExampleSite.*;
@@ -18,7 +19,8 @@ import static org.mytests.uiobjects.example.enums.Status.*;
 /**
  * Created by X240 on 10/8/2017.
  */
-public class RewritingTestFromSelenide extends SimpleTestsInit {
+public class RewritingTestFromSelenideTestCase1 extends SimpleTestsInit {
+
     @Test
     public void rewritingTest(){
         homePage.open();

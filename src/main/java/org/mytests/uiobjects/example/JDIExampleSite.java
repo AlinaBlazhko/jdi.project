@@ -5,13 +5,17 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Label;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JSite;
-import org.mytests.uiobjects.example.entities.ContactInfo;
 import org.mytests.uiobjects.example.entities.User;
 import org.mytests.uiobjects.example.enums.CheckBoxes;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.mytests.uiobjects.example.pages.*;
 import org.mytests.uiobjects.example.form.*;
+import org.mytests.uiobjects.example.sections.Header;
+import org.mytests.uiobjects.example.sections.LeftSection;
+import org.mytests.uiobjects.example.sections.RightSection;
+import org.mytests.uiobjects.example.form.Summery;
+import org.mytests.uiobjects.example.sections.SimpleTable;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -27,28 +31,20 @@ import static org.mytests.uiobjects.example.enums.UserName.PITER_CHAILOVSKII;
 public class JDIExampleSite extends WebSite {
 
     public static HomePage homePage;
-
     public static LoginForm loginForm;
-
     public static ContactPage contactPage;
-
-    private static ContactForm contactForm;
-
+    public static ContactForm contactForm;
     public static DifferentElements differentElements;
-
-    public static MetalsAndColors metalsAndColors;
-
+    public static MetalsAndColorsForm metalsAndColorsForm;
     public static Header header;
-
     public static RightSection rightSection;
-
     public static LeftSection leftSection;
-
-    public static Dates dates;
-
+    public static DatesForm dates;
     public static TableWithPagesSearch search;
-
     public static DatesPage datesPage;
+    public static Summery summery;
+    public static SimpleTable simpleTable;
+
 
     @FindBy(css = ".profile-photo")
     public static Label profilePhoto;
@@ -76,10 +72,6 @@ public class JDIExampleSite extends WebSite {
         for (Text i: homePage.texts) {
             i.isDisplayed();
         }
-    }
-    @Step
-    public static void writingContactInfo(){
-        contactForm.submit(new ContactInfo());
     }
 
     @Step("Select and assert checkboxes")
