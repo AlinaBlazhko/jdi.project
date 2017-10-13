@@ -12,7 +12,4 @@ import sun.swing.SwingUtilities2;
  */
 public class SimpleTableSection extends Section{
 
-//    @FindBy(css = "table.uui-table.stripe.tbl-without-header.table-td-click td")
-//    public Elements<Button> table;
-
 }

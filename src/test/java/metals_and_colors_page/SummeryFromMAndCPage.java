@@ -1,4 +1,4 @@
-package summery_section;
+package metals_and_colors_page;
 
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.SummeryInfo;

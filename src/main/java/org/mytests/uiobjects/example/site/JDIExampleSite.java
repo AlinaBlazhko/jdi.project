@@ -94,7 +94,6 @@ public class JDIExampleSite extends WebSite{
     @Step("Select and assert radio button")
     public static void selectMetal(Metals metal){
         differentElementsPage.radioButtons.select(metal.ordinal() + 1);
-        Assert.assertTrue(differentElementsPage.radioButtons.isSelected(metal.name()));
     }
 
     @Step("Select in dropdown")

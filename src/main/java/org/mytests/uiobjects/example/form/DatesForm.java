@@ -9,6 +9,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.TextArea;
 import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Elements;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
+import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;
 import org.mytests.uiobjects.example.entities.DatesInfo;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -20,6 +21,7 @@ import static com.codeborne.selenide.Selenide.actions;
 import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.ALL;
 import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.MANDATORY;
 import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.OPTIONAL;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.rightSection;
 import static org.testng.Assert.assertEquals;
 
 
@@ -60,17 +62,16 @@ public class DatesForm extends Form<DatesInfo>{
     @FindBy(css = ".ui-slider-handle")
     public Elements<Link> sliders;
 
-    @Override
-    public void fill(DatesInfo info){
+    public void fillRange1(DatesInfo info){
         if (currentFilter != MANDATORY){
             setSliders(info.range2.from, info.range2.to);
+            range1.get(0).sendKeys(String.valueOf(info.range1.from));
+            range1.get(1).sendKeys(String.valueOf(info.range1.to));
         }
         if (currentFilter != OPTIONAL){
             range1.get(0).sendKeys(String.valueOf(info.range1.from));
             range1.get(1).sendKeys(String.valueOf(info.range1.to));
         }
-
-        super.fill(info);
     }
     private Double getStepInPixels() {
         return sliderTrack.getSize().width / 100.0;
@@ -101,6 +102,27 @@ public class DatesForm extends Form<DatesInfo>{
         super.submit(datesInfo);
     }
 
+    public void fillRange(DatesInfo datesInfo){
+        if (currentFilter != OPTIONAL) {
+            range1.get(0).sendKeys(String.valueOf(datesInfo.range1.from));
+            range1.get(1).sendKeys(String.valueOf(datesInfo.range1.to));
+        }
+    }
+
+
+
+    public void verifyResultForAll(DatesInfo datesInfo){
+            Assert.assertTrue(rightSection.results.get(0).getText().contains(datesInfo.name));
+            Assert.assertTrue(rightSection.results.get(1).getText().contains(datesInfo.lastName));
+            Assert.assertTrue(rightSection.results.get(2).getText().contains(datesInfo.description));
+            Assert.assertTrue(rightSection.results.get(3).getText().contains(datesInfo.datePicker));
+            Assert.assertTrue(rightSection.results.get(4).getText().contains(datesInfo.timePicker));
+            Assert.assertTrue(rightSection.results.get(5).getText().contains(String.valueOf(datesInfo.range1.from)));
+            Assert.assertTrue(rightSection.results.get(5).getText().contains(String.valueOf(datesInfo.range1.to)));
+            Assert.assertTrue(rightSection.results.get(6).getText().contains(String.valueOf(datesInfo.range2.from)));
+            Assert.assertTrue(rightSection.results.get(6).getText().contains(String.valueOf(datesInfo.range2.to)));
+
+    }
     public void clickButton(){
         submit.click();
     }

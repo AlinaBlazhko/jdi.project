@@ -1,4 +1,4 @@
-package different_elements_page;
+package TestFromSelenide;
 
 import init.SimpleTestsInit;
 import org.testng.annotations.DataProvider;
