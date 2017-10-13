@@ -17,7 +17,7 @@ import org.mytests.uiobjects.example.sections.RightSection;
 import org.mytests.uiobjects.example.sections.SimpleTableSection;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import pagination.JdiPaginator;
+import all_tests.pagination.JdiPaginator;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;

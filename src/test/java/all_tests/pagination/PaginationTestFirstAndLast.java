@@ -1,7 +1,7 @@
-package pagination;
+package all_tests.pagination;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.Pages;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -19,7 +19,7 @@ public class PaginationTestFirstAndLast extends SimpleTestsInit{
         login();
     }
 
-    @Test(groups = "Smoke")
+    @Test(groups = "Pagination section")
     public void lastFirstButtonTest(){
         complexTablePage.open();
         paginator.first();

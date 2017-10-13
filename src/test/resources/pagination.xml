@@ -1,0 +1,14 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Pagination section"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.pagination.PaginationTestFirstAndLast"/>
+            <class name="all_tests.pagination.PaginationTestNext"/>
+            <class name="all_tests.pagination.PaginationTestPrev"/>
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,6 @@
-package TestFromSelenide;
+package all_tests.TestFromSelenide;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -23,7 +23,7 @@ public class DragAndDrop extends SimpleTestsInit {
         };
     }
 
-    @Test(dataProvider = "dragAndDropProvider", groups = "Smoke")
+    @Test(dataProvider = "dragAndDropProvider", groups = "Regression")
     public void testCF(int left, int right) {
         //Open login form and perform login
         homePage.open();

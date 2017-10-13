@@ -1,0 +1,12 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.login_tests.LoginTest"/>
+        </classes>
+    </test>
+</suite>

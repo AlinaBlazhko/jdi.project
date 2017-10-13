@@ -1,6 +1,6 @@
-package different_elements_page;
+package all_tests.different_elements_page;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.CheckBoxes;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
@@ -34,7 +34,7 @@ public class DifferentElementsTest extends SimpleTestsInit{
         };
     }
 
-    @Test(dataProvider = "elementsProvider", groups = "Smoke")
+    @Test(dataProvider = "elementsProvider", groups = "Different elements")
     public void elementsTest(CheckBoxes checkbox, Metals metal, Colors color){
         homePage.open();
         login();

@@ -1,6 +1,6 @@
-package searching_test;
+package all_tests.searching_test;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -30,7 +30,7 @@ public class Searching extends SimpleTestsInit{
         login();
     }
 
-        @Test(dataProvider = "searchProvider")
+        @Test(dataProvider = "searchProvider", groups = "Search")
     public void searchTest(String request, int responseCount, String rowCount){
         header.open(HEADER_SERVICE, TABLE_WITH_PAGES);
 

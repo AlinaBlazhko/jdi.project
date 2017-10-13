@@ -1,6 +1,6 @@
-package contact_form_page;
+package all_tests.contact_form_page;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.ContactInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -35,7 +35,7 @@ public class ContactFormResultSection extends SimpleTestsInit {
         login();
     }
 
-    @Test(dataProvider = "contactProvider")
+    @Test(dataProvider = "contactProvider", groups = "Contact form")
     public void TestCF(ContactInfo contactInfo){
         header.open(HEADER_CONTACT_FORM);
 

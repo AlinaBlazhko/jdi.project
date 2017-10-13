@@ -1,6 +1,6 @@
-package metals_and_colors_page;
+package all_tests.metals_and_colors_page;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.SummeryInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -35,7 +35,7 @@ public class SummeryFromMAndCPage extends SimpleTestsInit{
         login();
     }
 
-    @Test(dataProvider = "summeryProvider")
+    @Test(dataProvider = "summeryProvider", groups = "Metals and colors")
     public void summeryTest(SummeryInfo summeryInfo, boolean odd, boolean even){
         header.open(HEADER_METALS_AND_COLORS);
 

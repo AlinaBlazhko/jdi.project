@@ -1,0 +1,12 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Search"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.searching_test.Searching"/>
+        </classes>
+    </test>
+</suite>

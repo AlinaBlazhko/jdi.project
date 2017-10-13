@@ -1,6 +1,6 @@
-package metals_and_colors_page;
+package all_tests.metals_and_colors_page;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.MetalsAndColorsInfo;
 import org.mytests.uiobjects.example.enums.*;
 import org.testng.annotations.BeforeMethod;
@@ -44,7 +44,7 @@ public class MetalsAndColorsSummery extends SimpleTestsInit{
         login();
     }
 
-        @Test(dataProvider = "metalsAndColorsProvider")
+        @Test(dataProvider = "metalsAndColorsProvider", groups = "Metals and colors")
     public void sumTest(MetalsAndColorsInfo info, boolean odd, boolean even){
         homePage.checkOpened();
 

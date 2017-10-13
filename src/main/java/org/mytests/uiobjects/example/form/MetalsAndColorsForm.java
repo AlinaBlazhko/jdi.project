@@ -27,9 +27,6 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsInfo> {
     @FindBy(id = "calculate-button")
     public Button calculate;
 
-    @FindBy(css = ".uui-form-element.blue")
-    public Elements<CheckBox> power;
-
     @FindBy(css = "div.form-group.colors")
     public Button color;
 
@@ -54,7 +51,6 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsInfo> {
         if (!info.even.isEmpty()) {
             evens.select(info.even);
         }
-//        power.get(info.element).check();
         color.click();
         colors.get(info.color).click();
         food.click();

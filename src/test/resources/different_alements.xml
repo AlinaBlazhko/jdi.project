@@ -1,0 +1,12 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Different elements"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.contact_form_page.ContactFormResultSection"/>
+        </classes>
+    </test>
+</suite>

@@ -168,7 +168,7 @@ public class DatesForm extends Form<DatesInfo>{
     public void checkSliders(int leftSliderPos, int rightSliderPos) {
         sliderTrack.scrollTo();
         assertEquals(sliders.get(0).getValue(), Integer.toString(leftSliderPos));
-        assertEquals(sliders.get(1).getValue(), Integer.toString(leftSliderPos));
+        assertEquals(sliders.get(1).getValue(), Integer.toString(rightSliderPos));
     }
 
 

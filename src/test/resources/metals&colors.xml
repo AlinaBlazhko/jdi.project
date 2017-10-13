@@ -1,0 +1,13 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Metals and colors"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.metals_and_colors_page.MetalsAndColorsSummery"/>
+            <class name="all_tests.metals_and_colors_page.SummeryFromMAndCPage"/>
+        </classes>
+    </test>
+</suite>

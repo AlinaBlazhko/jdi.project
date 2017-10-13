@@ -1,4 +1,4 @@
-package pagination;
+package all_tests.pagination;
 
 import com.epam.jdi.uitests.core.interfaces.common.IButton;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;

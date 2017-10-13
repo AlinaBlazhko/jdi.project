@@ -1,21 +1,18 @@
-package pagination;
+package all_tests.pagination;
 
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.Pages;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.mytests.uiobjects.example.enums.Pages.*;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
-import static org.mytests.uiobjects.example.site.JDIExampleSite.paginator;
 
 /**
  * Created by X240 on 10/13/2017.
  */
-public class PaginationTestNext extends SimpleTestsInit{
+public class PaginationTestPrev extends SimpleTestsInit {
     @DataProvider(parallel = true)
     public Object[][] pagesProvider() {
         return new Object[][]{
@@ -32,17 +29,17 @@ public class PaginationTestNext extends SimpleTestsInit{
         login();
     }
 
-    @Test(dataProvider = "pagesProvider", groups = "Smoke")
+    @Test(dataProvider = "pagesProvider", groups = "Pagination section")
     public void previousPageTest(Pages prev, Pages current, Pages next){
         switch (current.getIndex()) {
             case 1: contactPage.open();
-                break;
+            break;
             case 2: supportPage.open();
-                break;
+            break;
             case 3: datesPage.open();
-                break;
+            break;
             case 4: complexTablePage.open();
-                break;
+            break;
             case 5: simpleTablePage.open();
                 break;
             case 6: tableWithPage.open();
@@ -53,7 +50,8 @@ public class PaginationTestNext extends SimpleTestsInit{
                 break;
         }
 
-        paginator.next();
-        Assert.assertEquals(WebPage.getTitle(), next.getName());
+        paginator.previous();
+        Assert.assertEquals(WebPage.getTitle(), prev.getName());
     }
+
 }

@@ -1,0 +1,13 @@
+<suite name="Annotations" verbose="1">
+    <test name="Nopackage">
+        <groups>
+            <run>
+                <include name = "Regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="all_tests.TestFromSelenide.DragAndDrop"/>
+            <class name="all_tests.TestFromSelenide.RewritingTestFromSelenideTestCase1"/>
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,6 @@
-package TestFromSelenide;
+package all_tests.TestFromSelenide;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +25,7 @@ public class RewritingTestFromSelenideTestCase1 extends SimpleTestsInit {
         login();
     }
 
-    @Test
+    @Test(groups = "Regresion")
     public void rewritingTest(){
         //Check interface from Home page
         checkExistenceOfElements();

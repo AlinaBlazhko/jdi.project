@@ -1,6 +1,6 @@
-package login_tests;
+package all_tests.login_tests;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.User;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -25,7 +25,7 @@ public class LoginTest extends SimpleTestsInit {
         };
     }
 
-    @Test(dataProvider = "loginProvider")
+    @Test(dataProvider = "loginProvider", groups = "Smoke")
     public void loginTest(User user, Boolean checkDates) {
         homePage.open();
         homePage.checkOpened();

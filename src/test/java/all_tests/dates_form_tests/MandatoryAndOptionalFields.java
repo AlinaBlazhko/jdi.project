@@ -1,6 +1,6 @@
-package dates_form_tests;
+package all_tests.dates_form_tests;
 
-import init.SimpleTestsInit;
+import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.DatesInfo;
 import org.mytests.uiobjects.example.entities.Range1;
 import org.mytests.uiobjects.example.entities.Range2;
@@ -38,7 +38,7 @@ public class MandatoryAndOptionalFields extends SimpleTestsInit {
         login();
     }
 
-    @Test(dataProvider = "dataProvider")
+    @Test(dataProvider = "dataProvider", groups = "Dates Page")
     public void testMandatoryField(DatesInfo datesInfo, String status, boolean submit) {
         header.open(HEADER_SERVICE, HeaderMenu.DATES);
 
