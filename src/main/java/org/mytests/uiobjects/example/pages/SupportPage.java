@@ -3,6 +3,7 @@ package org.mytests.uiobjects.example.pages;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
 import com.epam.jdi.uitests.core.interfaces.complex.interfaces.ITable;
 import com.epam.jdi.uitests.web.selenium.elements.complex.table.Table;
+import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
  */
 
 @JPage(url = "/page3.htm")
-public class SupportPage {
+public class SupportPage extends WebPage{
     @FindBy(css = "table.uui-table stripe")
     public Table table;
 }

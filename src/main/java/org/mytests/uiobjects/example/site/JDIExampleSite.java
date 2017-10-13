@@ -34,14 +34,16 @@ public class JDIExampleSite extends WebSite{
     public static ContactPage contactPage;
     public static SupportPage supportPage;
     public static DatesPage datesPage;
-    public static  datesPage;
-    public static DatesPage datesPage;
-    public static DatesPage datesPage;
-    public static DatesPage datesPage;
+    public static ComplexTablePage complexTablePage;
+    public static SimpleTable simpleTablePage;
+    public static TableWithPages tableWithPage;
+    public static DifferentElements differentElementsPage;
+    public static MetalsAndColors metalsAndColorsPage;
+
+
 
     public static LoginForm loginForm;
     public static ContactForm contactForm;
-    public static DifferentElements differentElements;
     public static MetalsAndColorsForm metalsAndColorsForm;
     public static Header header;
     public static RightSection rightSection;
@@ -80,29 +82,29 @@ public class JDIExampleSite extends WebSite{
 
     @Step("Select and assert checkboxes")
     public static void selectAndCheckCheckbox(CheckBoxes checkBoxes){
-        differentElements.checkBoxes.get(checkBoxes.ordinal()).check();
-        differentElements.checkBoxes.get(checkBoxes.ordinal()).isChecked();
+        differentElementsPage.checkBoxes.get(checkBoxes.ordinal()).check();
+        //Assert.assertTrue(differentElementsPage.checkBoxes.get(checkBoxes.ordinal()).isChecked());
     }
 
     @Step("Unselect and assert checkboxes")
     public static void unselectAndCheckCheckbox(CheckBoxes checkBoxes){
-        differentElements.checkBoxes.get(checkBoxes.ordinal()).uncheck();
+        differentElementsPage.checkBoxes.get(checkBoxes.ordinal()).uncheck();
     }
 
     @Step("Select and assert radio button")
     public static void selectMetal(Metals metal){
-        differentElements.radioButtons.select(metal.ordinal() + 1);
-        differentElements.radioButtons.isSelected(metal.name());
+        differentElementsPage.radioButtons.select(metal.ordinal() + 1);
+        Assert.assertTrue(differentElementsPage.radioButtons.isSelected(metal.name()));
     }
 
     @Step("Select in dropdown")
     public static void selectColor(Colors color){
-        differentElements.colors.select(color.ordinal()+1);
+        differentElementsPage.colors.select(color.ordinal()+1);
     }
 
     @Step
     public static void submitFromDifferentElements(){
-        differentElements.button.click();
+        differentElementsPage.button.click();
     }
 
     @Step("Check that dropdown on Left section contains all options")
@@ -119,10 +121,10 @@ public class JDIExampleSite extends WebSite{
 
     @Step("Check interface on Different elements page")
     public static void containingElementDifferentElements(){
-        differentElements.checkBoxes.isDisplayed();
-        differentElements.radioButtons.isDisplayed();
-        differentElements.button.isDisplayed();
-        differentElements.defaultButton.isDisplayed();
+        differentElementsPage.checkBoxes.isDisplayed();
+        differentElementsPage.radioButtons.isDisplayed();
+        differentElementsPage.button.isDisplayed();
+        differentElementsPage.defaultButton.isDisplayed();
         rightSection.logs.isDisplayed();
         rightSection.results.isDisplayed();
     }

@@ -14,7 +14,7 @@ import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 /**
  * Created by X240 on 10/13/2017.
  */
-public class PaginationTest extends SimpleTestsInit {
+public class PaginationTestPrev extends SimpleTestsInit {
     @DataProvider(parallel = true)
     public Object[][] pagesProvider() {
         return new Object[][]{
@@ -29,21 +29,31 @@ public class PaginationTest extends SimpleTestsInit {
     public void beforeTest(){
         homePage.open();
         login();
-
     }
 
-    @Test(dataProvider = "pagesProvider")
-    public void nextPageTest(Pages prev, Pages next){
-        paginator.next();
-        Assert.assertEquals(WebPage.getTitle(), next.getName());
-    }
-
-    @Test(dataProvider = "pagesProvider")
+    @Test(dataProvider = "pagesProvider", groups = "Smoke")
     public void previousPageTest(Pages prev, Pages current, Pages next){
         switch (current.getIndex()) {
-            case 1:
+            case 1: contactPage.open();
+            break;
+            case 2: supportPage.open();
+            break;
+            case 3: datesPage.open();
+            break;
+            case 4: complexTablePage.open();
+            break;
+            case 5: simpleTablePage.open();
+                break;
+            case 6: tableWithPage.open();
+                break;
+            case 7: differentElementsPage.open();
+                break;
+            case 8: metalsAndColorsPage.open();
+                break;
         }
+
         paginator.previous();
         Assert.assertEquals(WebPage.getTitle(), prev.getName());
     }
+
 }

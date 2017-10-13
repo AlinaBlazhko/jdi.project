@@ -3,8 +3,9 @@
 <suite name="Nopackage">
     <test name="Smoke">
         <classes>
-            <class name="different_elements_page.DifferentElementsTest"/>
-            <class name="different_elements_page.DragAndDrop"/>
+            <class name="pagination.PaginationTestFirstAndLast"/>
+            <class name="pagination.PaginationTestNext"/>
+            <class name="pagination.PaginationTestPrev"/>
         </classes>
     </test>
 </suite>
