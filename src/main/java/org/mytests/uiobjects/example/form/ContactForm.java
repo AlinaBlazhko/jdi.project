@@ -6,9 +6,9 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import org.mytests.uiobjects.example.entities.ContactInfo;
-import org.mytests.uiobjects.example.enums.EvenNumbers;
 import org.mytests.uiobjects.example.enums.Numbers;
-import org.mytests.uiobjects.example.enums.OddNumbers;
+
+import static org.mytests.uiobjects.example.site.JDIExampleSite.contactForm;
 
 /**
  * Created by X240 on 9/28/2017.
@@ -34,5 +34,14 @@ public class ContactForm extends Form<ContactInfo> {
     @JFindBy(text = "Submit")
     public Button submit;
 
-
+    @Override
+    public void submit(ContactInfo info){
+        if (!info.odd.isEmpty()){
+            contactForm.numbers.select(info.odd);
+        }
+        if (!info.even.isEmpty()) {
+            contactForm.numbers.select(info.even);
+        }
+        super.submit(info);
+    }
 }

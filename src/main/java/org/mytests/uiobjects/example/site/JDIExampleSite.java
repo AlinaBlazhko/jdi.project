@@ -1,4 +1,4 @@
-package org.mytests.uiobjects.example;
+package org.mytests.uiobjects.example.site;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Image;
 import com.epam.jdi.uitests.web.selenium.elements.common.Label;
@@ -9,15 +9,15 @@ import org.mytests.uiobjects.example.entities.User;
 import org.mytests.uiobjects.example.enums.CheckBoxes;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
-import org.mytests.uiobjects.example.pages.*;
 import org.mytests.uiobjects.example.form.*;
+import org.mytests.uiobjects.example.pages.*;
 import org.mytests.uiobjects.example.sections.Header;
 import org.mytests.uiobjects.example.sections.LeftSection;
 import org.mytests.uiobjects.example.sections.RightSection;
-import org.mytests.uiobjects.example.form.Summery;
-import org.mytests.uiobjects.example.sections.SimpleTable;
+import org.mytests.uiobjects.example.sections.SimpleTableSection;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import pagination.JdiPaginator;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
@@ -28,11 +28,18 @@ import static org.mytests.uiobjects.example.enums.UserName.PITER_CHAILOVSKII;
  * Created by Roman_Iovlev on 8/30/2015.
  */
 @JSite(domain = "https://epam.github.io/JDI/")
-public class JDIExampleSite extends WebSite {
-
+public class JDIExampleSite extends WebSite{
+    //pages
     public static HomePage homePage;
-    public static LoginForm loginForm;
     public static ContactPage contactPage;
+    public static SupportPage supportPage;
+    public static DatesPage datesPage;
+    public static  datesPage;
+    public static DatesPage datesPage;
+    public static DatesPage datesPage;
+    public static DatesPage datesPage;
+
+    public static LoginForm loginForm;
     public static ContactForm contactForm;
     public static DifferentElements differentElements;
     public static MetalsAndColorsForm metalsAndColorsForm;
@@ -41,9 +48,9 @@ public class JDIExampleSite extends WebSite {
     public static LeftSection leftSection;
     public static DatesForm dates;
     public static TableWithPagesSearch search;
-    public static DatesPage datesPage;
     public static Summery summery;
-    public static SimpleTable simpleTable;
+    public static SimpleTableSection simpleTable;
+    public static JdiPaginator paginator;
 
 
     @FindBy(css = ".profile-photo")
@@ -55,9 +62,6 @@ public class JDIExampleSite extends WebSite {
         loginForm.loginAs(new User());
         Assert.assertEquals(profilePhoto.getText(), PITER_CHAILOVSKII.getName());
     }
-
-
-
 
     @Step("Check interface on Home page")
     public static void checkExistenceOfElements(){
@@ -91,8 +95,6 @@ public class JDIExampleSite extends WebSite {
         differentElements.radioButtons.isSelected(metal.name());
     }
 
-
-
     @Step("Select in dropdown")
     public static void selectColor(Colors color){
         differentElements.colors.select(color.ordinal()+1);
@@ -102,7 +104,6 @@ public class JDIExampleSite extends WebSite {
     public static void submitFromDifferentElements(){
         differentElements.button.click();
     }
-
 
     @Step("Check that dropdown on Left section contains all options")
     public static void containingElementLeftSection(){

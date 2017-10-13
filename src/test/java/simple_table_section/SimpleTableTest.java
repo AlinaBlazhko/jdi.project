@@ -1,8 +1,9 @@
+package simple_table_section;
+
 import init.SimpleTestsInit;
-import org.mytests.uiobjects.example.enums.HeaderMenu;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.SIMPLE_TABLE;
 
@@ -17,6 +18,6 @@ public class SimpleTableTest extends SimpleTestsInit{
 
         header.open(HEADER_SERVICE, SIMPLE_TABLE);
 
-        simpleTable.table.cell(1, 2).click();
+        //simpleTable.table.get(3).click();
     }
 }

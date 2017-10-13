@@ -6,8 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
-import static org.mytests.uiobjects.example.enums.LeftSectionMenu.LEFT_CONTACT_FORM;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.UserName.PITER_CHAILOVSKII;
 
 /**

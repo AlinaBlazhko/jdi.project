@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Nopackage">
+    <test name="Smoke">
+        <classes>
+            <class name="different_elements_page.DifferentElementsTest"/>
+            <class name="different_elements_page.DragAndDrop"/>
+        </classes>
+    </test>
+</suite>

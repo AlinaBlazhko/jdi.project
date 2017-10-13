@@ -3,10 +3,11 @@ package summery_section;
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.SummeryInfo;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.EvenNumbers.EIGHT;
 import static org.mytests.uiobjects.example.enums.EvenNumbers.FOUR;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_METALS_AND_COLORS;
@@ -28,11 +29,14 @@ public class SummeryFromMAndCPage extends SimpleTestsInit{
         };
     }
 
-    @Test(dataProvider = "summeryProvider")
-    public void summeryTest(SummeryInfo summeryInfo, boolean odd, boolean even){
+    @BeforeMethod
+    public void beforeTest() {
         homePage.open();
         login();
+    }
 
+    @Test(dataProvider = "summeryProvider")
+    public void summeryTest(SummeryInfo summeryInfo, boolean odd, boolean even){
         header.open(HEADER_METALS_AND_COLORS);
 
         summery.submit(summeryInfo, odd, even);

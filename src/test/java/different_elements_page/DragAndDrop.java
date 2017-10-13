@@ -1,20 +1,12 @@
-package TestFromSelenide;
+package different_elements_page;
 
 import init.SimpleTestsInit;
-import org.mytests.uiobjects.example.entities.SummeryInfo;
-import org.mytests.uiobjects.example.enums.HeaderMenu;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
-import static org.mytests.uiobjects.example.enums.EvenNumbers.EIGHT;
-import static org.mytests.uiobjects.example.enums.EvenNumbers.FOUR;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.DATES;
-import static org.mytests.uiobjects.example.enums.HeaderMenu.DIFFERENT_ELEMENTS;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
-import static org.mytests.uiobjects.example.enums.OddNumbers.SEVEN;
-import static org.mytests.uiobjects.example.enums.OddNumbers.THREE;
 
 /**
  * Created by X240 on 10/10/2017.
@@ -31,7 +23,7 @@ public class DragAndDrop extends SimpleTestsInit {
         };
     }
 
-    @Test(dataProvider = "dragAndDropProvider")
+    @Test(dataProvider = "dragAndDropProvider", groups = "Smoke")
     public void testCF(int left, int right) {
         //Open login form and perform login
         homePage.open();
@@ -41,7 +33,7 @@ public class DragAndDrop extends SimpleTestsInit {
         header.open(HEADER_SERVICE, DATES);
 
         dates.setSliders(left,right);
-
+        dates.checkSliders(left, right);
 
     }
 }

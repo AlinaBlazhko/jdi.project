@@ -3,15 +3,13 @@ package TestFromSelenide;
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.*;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.CheckBoxes.*;
 import static org.mytests.uiobjects.example.enums.Colors.YELLOW;
-import static org.mytests.uiobjects.example.enums.HeaderMenu.DIFFERENT_ELEMENTS;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_HOME;
-import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
 import static org.mytests.uiobjects.example.enums.LeftSectionMenu.LEFT_SERVICE;
 import static org.mytests.uiobjects.example.enums.Metals.SELEN;
 import static org.mytests.uiobjects.example.enums.Status.*;
@@ -21,15 +19,14 @@ import static org.mytests.uiobjects.example.enums.Status.*;
  */
 public class RewritingTestFromSelenideTestCase1 extends SimpleTestsInit {
 
+    @BeforeMethod
+    public void beforeTest() {
+        homePage.open();
+        login();
+    }
+
     @Test
     public void rewritingTest(){
-        homePage.open();
-
-        //Perform login and assert Username
-        login();
-
-        homePage.checkOpened();
-
         //Check interface from Home page
         checkExistenceOfElements();
 

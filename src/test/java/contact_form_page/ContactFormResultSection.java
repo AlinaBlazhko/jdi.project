@@ -2,16 +2,17 @@ package contact_form_page;
 
 import init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.ContactInfo;
-import org.mytests.uiobjects.example.enums.EvenNumbers;
-import org.mytests.uiobjects.example.enums.Numbers;
-import org.mytests.uiobjects.example.enums.OddNumbers;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.DatesInfoEnum.*;
 import static org.mytests.uiobjects.example.enums.EvenNumbers.FOUR;
+import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_CONTACT_FORM;
+import static org.mytests.uiobjects.example.enums.Numbers.*;
+import static org.mytests.uiobjects.example.enums.Numbers.EIGHT;
 import static org.mytests.uiobjects.example.enums.OddNumbers.THREE;
 
 /**
@@ -21,36 +22,45 @@ public class ContactFormResultSection extends SimpleTestsInit {
     @DataProvider(parallel = true)
     public Object[][] contactProvider(){
         return new Object[][]{
-                {new ContactInfo(NAME.element, LAST_NAME.element, DESCRIPTION.element, Numbers.FIVE.element, Numbers.FOUR.element)},
-                {new ContactInfo(NAME.element, LAST_NAME.element, DESCRIPTION.element, "", "")},
+                {new ContactInfo(NAME.element, LAST_NAME.element, DESCRIPTION.element, FIVE.element, FOUR.element)},
+                {new ContactInfo(NAME.element, LAST_NAME.element, "", "", "")},
+                {new ContactInfo(NAME.element, LAST_NAME.element, DESCRIPTION.element, "", EIGHT.element)},
+                {new ContactInfo(NAME.element, LAST_NAME.element, DESCRIPTION.element, THREE.element, "")}
         };
+    }
+
+    @BeforeMethod
+    public void beforeTest() {
+        homePage.open();
+        login();
     }
 
     @Test(dataProvider = "contactProvider")
     public void TestCF(ContactInfo contactInfo){
-        //Open login form and perform login
-        homePage.open();
-        login();
+        header.open(HEADER_CONTACT_FORM);
 
-        //Open contact form and fill in a fields
-        contactPage.open();
+        int sum = 3;
 
-        int sum;
-
-        //Submit form
-        if (contactInfo.odd.isEmpty()&&contactInfo.even.isEmpty()){
-            sum = 3;
-        }else {
-            contactForm.numbers.select(contactInfo.odd);
-            contactForm.numbers.select(contactInfo.even);
-            sum = Integer.parseInt(contactInfo.even) + Integer.parseInt(contactInfo.odd);
+        if (!contactInfo.odd.isEmpty() && !contactInfo.even.isEmpty()){
+            sum = Integer.parseInt(contactInfo.odd) + Integer.parseInt(contactInfo.even);
         }
+
+        if (contactInfo.odd.isEmpty() && !contactInfo.even.isEmpty()){
+            sum = Integer.parseInt(contactInfo.even) + 1;
+        }
+
+        if (!contactInfo.odd.isEmpty() && contactInfo.even.isEmpty()){
+            sum = Integer.parseInt(contactInfo.odd) + 2;
+        }
+
 
         contactForm.submit(contactInfo);
 
         Assert.assertTrue(rightSection.results.get(0).getValue().contains(String.valueOf(sum)));
         Assert.assertTrue(rightSection.results.get(1).getValue().contains(String.valueOf(contactInfo.name)));
         Assert.assertTrue(rightSection.results.get(2).getValue().contains(String.valueOf(contactInfo.lastName)));
-        Assert.assertTrue(rightSection.results.get(3).getValue().contains(String.valueOf(contactInfo.description)));
+        if (!contactInfo.description.isEmpty()){
+            Assert.assertTrue(rightSection.results.get(3).getValue().contains(String.valueOf(contactInfo.description)));
+        }
     }
 }

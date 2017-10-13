@@ -30,10 +30,12 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsInfo> {
     @FindBy(css = ".uui-form-element.blue")
     public Elements<CheckBox> power;
 
-    public IDropDown colors = new Dropdown<>(
-            By.cssSelector("div.form-group.colors"),
-            By.cssSelector("ul.dropdown-menu.inner.selectpicker li")
-    );
+    @FindBy(css = "div.form-group.colors")
+    public Button color;
+
+    @FindBy(css = "ul.dropdown-menu.inner.selectpicker li")
+    public Elements<Label> colors;
+
 
     @FindBy(css = "div#salad-dropdown.dropdown.salad")
     public Label food;
@@ -53,7 +55,8 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsInfo> {
             evens.select(info.even);
         }
 //        power.get(info.element).check();
-//        colors.select(info.color);
+        color.click();
+        colors.get(info.color).click();
         food.click();
         vegetables.get(info.vegetable).click();
         super.submit(info);

@@ -1,14 +1,5 @@
 package org.mytests.uiobjects.example.entities;
 
-import com.epam.commons.DataClass;
-import com.epam.jdi.uitests.core.annotations.Mandatory;
-
-import javax.print.attribute.standard.MediaSize;
-import java.io.StreamCorruptedException;
-import java.sql.Date;
-
-import static org.mytests.uiobjects.example.enums.DatesInfoEnum.NAME;
-
 /**
  * Created by X240 on 10/7/2017.
  */

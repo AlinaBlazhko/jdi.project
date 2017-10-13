@@ -41,15 +41,10 @@ public class DatesForm extends Form<DatesInfo>{
     @FindBy(css = "#Description")
     public TextArea description;
 
-//    @Mandatory
-//    @FindBy(css = "div.range-from.overflow>input")
-//    public Elements<TextField> range1;
-
     @Mandatory
     @FindBy(css = ".range-from input")
     private Elements<TextField> range1;
 
-    //??
     @FindBy(css = "div.date.uui-datepicker.date-button.small input")
     public TextField datePicker;
 
@@ -65,6 +60,18 @@ public class DatesForm extends Form<DatesInfo>{
     @FindBy(css = ".ui-slider-handle")
     public Elements<Link> sliders;
 
+    @Override
+    public void fill(DatesInfo info){
+        if (currentFilter != MANDATORY){
+            setSliders(info.range2.from, info.range2.to);
+        }
+        if (currentFilter != OPTIONAL){
+            range1.get(0).sendKeys(String.valueOf(info.range1.from));
+            range1.get(1).sendKeys(String.valueOf(info.range1.to));
+        }
+
+        super.fill(info);
+    }
     private Double getStepInPixels() {
         return sliderTrack.getSize().width / 100.0;
     }
@@ -141,6 +148,7 @@ public class DatesForm extends Form<DatesInfo>{
         assertEquals(sliders.get(0).getValue(), Integer.toString(leftSliderPos));
         assertEquals(sliders.get(1).getValue(), Integer.toString(leftSliderPos));
     }
+
 
 
 }
