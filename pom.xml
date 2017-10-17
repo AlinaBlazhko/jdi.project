@@ -14,7 +14,7 @@
         <jdi.version>1.0.71</jdi.version>
         <allure.version>1.4.23</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
-        <suiteXmlFile>regression.xml</suiteXmlFile>
+        <suiteXmlFile>search.xml</suiteXmlFile>
         <!--<suiteXmlFile>allTests.xml</suiteXmlFile>-->
         <!--<driver>chrome</driver>-->
     </properties>

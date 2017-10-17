@@ -6,7 +6,7 @@
             </run>
         </groups>
         <classes>
-            <class name="all_tests.contact_form_page.ContactFormResultSection"/>
+            <class name="all_tests.different_elements_page.DifferentElementsTest"/>
         </classes>
     </test>
 </suite>
