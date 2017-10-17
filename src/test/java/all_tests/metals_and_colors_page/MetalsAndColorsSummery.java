@@ -25,10 +25,10 @@ import static org.testng.Assert.*;
 /**
  * Created by X240 on 10/10/2017.
  */
-public class MetalsAndColorsSummery extends SimpleTestsInit{
+public class MetalsAndColorsSummery extends SimpleTestsInit {
 
     @DataProvider(parallel = true)
-    public Object[][] metalsAndColorsProvider(){
+    public Object[][] metalsAndColorsProvider() {
         return new Object[][]{
                 {new MetalsAndColorsInfo(FIVE.element, EIGHT.element, BLUE.getElement(), TOMATO.element, EARTH.element), true, true},
                 {new MetalsAndColorsInfo(FIVE.element, "", YELLOW.getElement(), ONION.element, EARTH.element), true, false},
@@ -42,39 +42,36 @@ public class MetalsAndColorsSummery extends SimpleTestsInit{
     public void beforeTest() {
         homePage.open();
         login();
+        header.open(HeaderMenu.HEADER_METALS_AND_COLORS);
     }
 
-        @Test(dataProvider = "metalsAndColorsProvider", groups = "Metals and colors")
-    public void sumTest(MetalsAndColorsInfo info, boolean odd, boolean even){
-        homePage.checkOpened();
-
-        header.open(HeaderMenu.HEADER_METALS_AND_COLORS);
-
+    @Test(dataProvider = "metalsAndColorsProvider", groups = "Metals and colors")
+    public void sumTest(MetalsAndColorsInfo info, boolean odd, boolean even) {
         metalsAndColorsForm.submit(info);
 
 
         contains(rightSection.results.get(0).getText(), String.valueOf(getSum(info.odd, info.even, odd, even)));
-    //contains(rightSection.results.get(1).getText(), "Colors");
+        //contains(rightSection.results.get(1).getText(), "Colors");
 
-        if (!Objects.equals(info.vegetable, SALAD.element)){
+        if (!Objects.equals(info.vegetable, SALAD.element)) {
             contains(rightSection.results.get(3).getText(), info.vegetable);
-        }else{
+        } else {
             assertEquals(rightSection.results.get(3).getText(), "Vegetables:");
         }
 
     }
 
-    private Integer getSum(String oddNumber, String evenNumber, boolean odd, boolean even){
+    private Integer getSum(String oddNumber, String evenNumber, boolean odd, boolean even) {
         int sum = 3;
-        if (odd && even){
+        if (odd && even) {
             sum = Integer.parseInt(evenNumber) + Integer.parseInt(oddNumber);
         }
 
-        if (odd && !even){
+        if (odd && !even) {
             sum = Integer.parseInt(oddNumber) + 2;
         }
 
-        if (!odd && even){
+        if (!odd && even) {
             sum = Integer.parseInt(evenNumber) + 1;
         }
         return sum;

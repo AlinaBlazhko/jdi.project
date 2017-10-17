@@ -3,6 +3,7 @@ package all_tests.login_tests;
 import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.User;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ import static org.mytests.uiobjects.example.enums.UserName.PITER_CHAILOVSKII;
 public class LoginTest extends SimpleTestsInit {
 
     @DataProvider(parallel = true)
-    public Object[][] loginProvider(){
+    public Object[][] loginProvider() {
         return new Object[][]{
                 {new User("login", "password"), false},
                 {new User("epam", "1234"), true},

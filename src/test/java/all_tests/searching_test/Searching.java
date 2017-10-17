@@ -12,7 +12,7 @@ import static org.mytests.uiobjects.example.enums.HeaderMenu.TABLE_WITH_PAGES;
 /**
  * Created by X240 on 10/11/2017.
  */
-public class Searching extends SimpleTestsInit{
+public class Searching extends SimpleTestsInit {
     @DataProvider(parallel = true)
     public Object[][] searchProvider() {
         return new Object[][]{
@@ -27,11 +27,11 @@ public class Searching extends SimpleTestsInit{
     public void beforeTest() {
         homePage.open();
         login();
+        header.open(HEADER_SERVICE, TABLE_WITH_PAGES);
     }
 
-        @Test(dataProvider = "searchProvider", groups = "Search")
-    public void searchTest(String request, int responseCount, String rowCount){
-        header.open(HEADER_SERVICE, TABLE_WITH_PAGES);
+    @Test(dataProvider = "searchProvider", groups = "Search")
+    public void searchTest(String request, int responseCount, String rowCount) {
 
         search.countOfRows.select(rowCount);
         search.searchInput.input(request);

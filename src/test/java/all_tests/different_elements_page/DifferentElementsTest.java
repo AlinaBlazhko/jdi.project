@@ -5,11 +5,13 @@ import org.mytests.uiobjects.example.enums.CheckBoxes;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Objects;
 
+import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_CONTACT_FORM;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.CheckBoxes.*;
 import static org.mytests.uiobjects.example.enums.Colors.GREEN;
@@ -34,12 +36,16 @@ public class DifferentElementsTest extends SimpleTestsInit{
         };
     }
 
-    @Test(dataProvider = "elementsProvider", groups = "Different elements")
-    public void elementsTest(CheckBoxes checkbox, Metals metal, Colors color){
+    @BeforeMethod(alwaysRun = true)
+    public void beforeTest() {
         homePage.open();
         login();
-
         header.open(HEADER_SERVICE, DIFFERENT_ELEMENTS);
+    }
+
+    @Test(dataProvider = "elementsProvider", groups = "Different elements")
+    public void elementsTest(CheckBoxes checkbox, Metals metal, Colors color){
+
 
         selectAndCheckCheckbox(checkbox);
         selectMetal(metal);

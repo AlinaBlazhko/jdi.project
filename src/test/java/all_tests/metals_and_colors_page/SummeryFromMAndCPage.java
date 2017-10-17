@@ -2,6 +2,7 @@ package all_tests.metals_and_colors_page;
 
 import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.SummeryInfo;
+import org.mytests.uiobjects.example.enums.HeaderMenu;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -33,12 +34,11 @@ public class SummeryFromMAndCPage extends SimpleTestsInit{
     public void beforeTest() {
         homePage.open();
         login();
+        header.open(HeaderMenu.HEADER_METALS_AND_COLORS);
     }
 
     @Test(dataProvider = "summeryProvider", groups = "Metals and colors")
     public void summeryTest(SummeryInfo summeryInfo, boolean odd, boolean even){
-        header.open(HEADER_METALS_AND_COLORS);
-
         summery.submit(summeryInfo, odd, even);
 
 
