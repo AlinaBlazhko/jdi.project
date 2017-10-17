@@ -29,7 +29,7 @@ public class SummeryFromMAndCPage extends SimpleTestsInit{
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();

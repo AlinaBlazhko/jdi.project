@@ -4,6 +4,7 @@ import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.entities.ContactInfo;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -29,15 +30,15 @@ public class ContactFormResultSection extends SimpleTestsInit {
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();
+        header.open(HEADER_CONTACT_FORM);
     }
 
     @Test(dataProvider = "contactProvider", groups = "Contact form")
     public void TestCF(ContactInfo contactInfo){
-        header.open(HEADER_CONTACT_FORM);
 
         int sum = 3;
 

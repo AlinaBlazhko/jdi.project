@@ -38,7 +38,7 @@ public class MetalsAndColorsSummery extends SimpleTestsInit{
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();

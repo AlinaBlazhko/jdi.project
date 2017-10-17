@@ -2,9 +2,8 @@ package all_tests.searching_test;
 
 import all_tests.init.SimpleTestsInit;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.HEADER_SERVICE;
 import static org.mytests.uiobjects.example.enums.HeaderMenu.TABLE_WITH_PAGES;
@@ -24,7 +23,7 @@ public class Searching extends SimpleTestsInit{
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();

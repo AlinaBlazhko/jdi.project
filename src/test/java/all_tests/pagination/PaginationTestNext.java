@@ -4,6 +4,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import all_tests.init.SimpleTestsInit;
 import org.mytests.uiobjects.example.enums.Pages;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,7 +27,7 @@ public class PaginationTestNext extends SimpleTestsInit{
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest(){
         homePage.open();
         login();

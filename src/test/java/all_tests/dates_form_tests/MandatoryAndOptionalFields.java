@@ -32,15 +32,16 @@ public class MandatoryAndOptionalFields extends SimpleTestsInit {
         };
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();
+        header.open(HEADER_SERVICE, HeaderMenu.DATES);
+
     }
 
     @Test(dataProvider = "dataProvider", groups = "Dates Page")
     public void testMandatoryField(DatesInfo datesInfo, String status, boolean submit) {
-        header.open(HEADER_SERVICE, HeaderMenu.DATES);
 
         if (Objects.equals(status, MANDATORY.status)) {
             dates.onlyMandatory().fill(datesInfo);

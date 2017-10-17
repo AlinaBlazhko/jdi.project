@@ -19,7 +19,7 @@ import static org.mytests.uiobjects.example.enums.Status.*;
  */
 public class RewritingTestFromSelenideTestCase1 extends SimpleTestsInit {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
         homePage.open();
         login();
